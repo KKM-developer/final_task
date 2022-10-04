@@ -31,6 +31,26 @@ void PrintArray(string[] table)
     }
 }
 
-
+string [] CheckArray (string [] someArray)
+{
+    int count = 0;
+    foreach (string item in someArray)
+    {
+        if (item.Length <= 3) count ++;
+    }
+    string [] returnList = new string[count];
+    count = 0;
+    for (int i = 0; i < someArray.Length; i++)
+    {
+        if (someArray[i].Length <= 3)
+        {
+            returnList[count] = someArray[i];
+            count++;
+        }
+    }
+    return returnList;
+}
 string [] user_list = FillArray();
 PrintArray(user_list);
+Console.WriteLine();
+PrintArray(CheckArray(user_list));
